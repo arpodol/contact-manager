@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="javascripts/jquery.js"></script>
+  <script src="javascripts/handlebars.js"></script>
+  <script src="javascripts/contactManager.js"></script>
+  <link rel="stylesheet" href="stylesheets/styles.css" type="text/css"/>
+</head>
+<body>
+  <header>
+    <h1>Contact Manager</h1>
+  </header>
+  <main>
+    <div class='interaction'>
+      <button id='add'>Add Contact</button>
+      <input type='text' id='search' placeholder="Search">
+    </div>
+
+    <div id='tagdiv'>
+      <h2>Tags</h2>
+      <div id ='tagcontainer'>
+      </div>
+
+      <form id='tagform'>
+        <dt><label for='tag'>New Tag Name</label></dt>
+        <dd><input type ='text' name='tag'></dd>
+        <input type='submit'>
+      </form>
+
+      <div id='modal-background'></div>
+      <div id='contact-modal' class='modal'>
+        <h2>Create Contact</h2>
+        <form id='contact-form'>
+        </form>
+      </div>
+
+      <div id='edit-modal' class='modal'>
+        <h2>Edit Contact</h2>
+        <form id='edit-form'>
+        </form>
+      </div>
+
+      <script id='tagTemplate' type='text/x-handlebars'>
+        {{#each tags}}
+        <button class ='tagbutton'>{{this}}</button>
+        {{/each}}
+      </script>
+    </div>
+
+    <div id='contacts'></div>
+
+    <script id='contactTemplate' type='text/x-handlebars'>
+      {{#each contacts}}
+      <div class='contact' data-id ={{id}}>
+        <h2>{{full_name}}</h2>
+        <h3>Phone Number:</h3>
+        <p>{{phone_number}}</p>
+        <h3>Email</h3>
+        <p>{{email}}</p>
+        <h3>Tags</h3>
+        {{#if tags}}
+        <ul>
+          {{#each tags}}
+          <li>{{this}}</li>
+          {{/each}}
+        </ul>
+        {{/if}}
+        <a href="http://localhost:3000/api/contacts/{{id}}" class ='editbutton'>Edit</a>
+        <a href="http://localhost:3000/api/contacts/{{id}}"class='deletebutton'>Delete</a>
+      </div>
+      {{/each}}
+    </script>
+
+
+    <script id='contactFormTemplate' type='text/x-handlebars'>
+      <dl data-id ={{id}}>
+        <dt><label for='full_name'>Full Name</label></dt>
+        <dd><input type='text' name ='full_name' value='{{full_name}}' required></dd>
+        <dt><label for='email'>Email Address</label></dt>
+        <dd><input type='email' name ='email' value='{{email}}'></dd>
+        <dt><label for='phone_number'>Phone Number</label></dt>
+        <dd><input type ='tel' name='phone_number' value='{{phone_number}}'></dd>
+      </dl>
+      <fieldset>
+        {{#each tags}}
+        <label>
+          <input type="checkbox" name="tagchoice" value="{{this}}" />
+          {{this}}
+        </label>
+        {{/each}}
+      </fieldset>
+      <input type='submit'>
+      <button class='cancel'>Cancel</button>
+    </script>
+  </main>
+
+</body>
+</html>

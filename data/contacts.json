@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "full_name": "Naveed Fida",
+    "email": "nf@example.com",
+    "phone_number": "12345678901",
+    "tags": "work,friend"
+  },
+  {
+    "id": 2,
+    "full_name": "Victor Reyes",
+    "email": "vpr@example.com",
+    "phone_number": "09876543210",
+    "tags": "work,friend"
+  },
+  {
+    "id": 3,
+    "full_name": "Pete Hanson",
+    "email": "ph@example.com",
+    "phone_number": "54321098761",
+    "tags": null
+  },
+  {
+    "full_name": "Test applicant",
+    "phone_number": "56456456",
+    "email": "test@test.com",
+    "tags": "",
+    "id": 4
+  },
+  {
+    "full_name": "another one",
+    "phone_number": "123123",
+    "email": "test@test.com",
+    "tags": "work,friend",
+    "id": 11
+  },
+  {
+    "full_name": "super mutton",
+    "phone_number": "234234",
+    "email": "superduper@gmail.com",
+    "tags": "work,friend,acquantice",
+    "id": 13
+  },
+  {
+    "full_name": "Pusheen",
+    "phone_number": "678690505",
+    "email": "push@pusheen.com",
+    "tags": "Homie",
+    "id": 14
+  }
+]
